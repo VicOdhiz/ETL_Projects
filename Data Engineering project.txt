@@ -1,0 +1,255 @@
+
+-- SQL Creating a TABLE for Motorvehicles
+CREATE TABLE Motorvehicles (
+Chassis_No VARCHAR(20),
+Make VARCHAR (20),
+Model VARCHAR (20),
+YOM YEAR,
+Color VARCHAR(20),
+Price INT,
+Location VARCHAR(20)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'1WKLG', 'Honda', 'Fit', 2015, 'Black', 965000, 'Mombasa'
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'7XNGU', 'Honda', 'Vezel', 2018, 'White', 2970000, 'Kisumu'
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'2EZCG', 'Honda', 'Accord', 2014, 'Silver', 2044000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'2MZQM', 'Honda', 'CRV', 2017, 'White', 3650000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5ZXBZ', 'Honda', 'Insight', 2011, 'Red Wine', 788000, 'Kakamega'
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'6YGGW', 'Honda', 'Fit-Shuttle', 2014, 'Maroon', 1346000, 'Kitui'
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'1RVJZ', 'Mazda', 'Demio', 2016, 'Blue', 884000, 'Kiambu'
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'3IFGC', 'Mazda', 'CX_3', 2017, 'Silver', 2104000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'8OQNZ', 'Mazda', 'Axela- Sedan', 2017, 'Black', 2100000, 'Bungoma'
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5ATXB', 'Mazda', 'Axela- Hatchback', 2017, 'Black', 1940000, 'Muranga'
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'0IDFW', 'Mazda', 'CX_5', 2016, 'Silver', 3400000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5TDPL', 'Nissan', 'Note', 2015, 'Red Wine', 708000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'2MQLN', 'Nissan', 'Sylphy', 2017, 'White', 1840000, 'Migori'
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'4FGNF', 'Nissan', 'Juke', 2014, 'Maroon', 1250000, 'Kwale'
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'3UOKI', 'Nissan', 'Xtrail', 2016, 'Silver', 2500000, 'Siaya'
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'6JNMI', 'Nissan', 'March', 2012, 'White', 420000, 'Bomet'
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'3BOXA', 'Nissan', 'Tiida', 2013, 'White', 673000, 'Homabay'
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'9PSJC', 'Nissan', 'Navara', 2013, 'Red Wine', 1020000, 'Busia'
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'7NVBV', 'Toyota', 'Fielder', 2015, 'Maroon', 1450000, 'Kericho'
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5GXGI', 'Toyota', 'Allion', 2016, 'Pearl White', 2100000, 'Mombasa'
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5WFBU', 'Toyota', 'Premio', 2016, 'Silver', 2300000, 'Mombasa'
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'7CQNX', 'Toyota', 'Axio', 2014, 'Black', 1800000, 'Kiambu'
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'2NHEF', 'Toyota', 'Rav-4', 2013, 'Silver', 1300000, 'Nyeri'
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'4YGUX', 'Toyota', 'Vanguard', 2014, 'Mint Blue', 1250000, 'Machakos'
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5JFKG', 'Toyota', 'Vitz', 2016, 'Blue', 805000, 'Kisumu'
+);
+
+/* INSERT QUERY NO: 26 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'5SBSO', 'Subaru', 'Forester XT', 2016, 'Blue', 2940000, 'Narok'
+);
+
+/* INSERT QUERY NO: 27 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'7FZYD', 'Subaru', 'Impreza G4', 2017, 'Silver', 1780000, 'Meru'
+);
+
+/* INSERT QUERY NO: 28 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'7KLJA', 'Subaru ', 'Impreza', 2015, 'Grey', 1675000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 29 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'4MSUU', 'Subaru ', 'Trezia', 2013, 'Matte Red', 1349000, 'Nairobi'
+);
+
+/* INSERT QUERY NO: 30 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'6BBWG', 'Mitsubishi', 'Outlander', 2018, 'Beige', 3500000, 'Nakuru'
+);
+
+/* INSERT QUERY NO: 31 */
+INSERT INTO Motorvehicles(Chassis_No, Make, Model, YOM, Color, Price, Location)
+VALUES
+(
+'2NRBV', 'Mitsubishi', 'Mirage', 2011, 'Metallic Grey', 364000, 'Kericho'
+);
+
+
+#Python Import libraries
+import mysql.connector
+import pandas as pd
+
+# Establish the connection to your MySQL database
+conn = mysql.connector.connect(
+    host='localhost',       # Replace with your host
+    user='root',   # Replace with your username
+    password='python.2024',  # Replace with your password
+    database='VIC_Tracker'  # Replace with your database name
+)
+
+# SQL query
+query = 'SELECT * FROM Motorvehicles';
+
+# Use pandas to execute the query and load the result into a DataFrame
+df = pd.read_sql(query, conn)
+
+# Close the connection
+conn.close()
+
+# Export the DataFrame to an Excel file
+df.to_excel('Motorvehicles_data.xlsx', index=False, engine='openpyxl')
+
+print("Data exported successfully to 'Motorvehicles_data.xlsx'.")
