@@ -1,0 +1,166 @@
+# ETL Script for Big Dataset
+
+import glob
+import pandas as pd
+import oracledb
+from datetime import datetime
+import sys
+
+#--------------------------------------------------------------------------------------------------------------
+
+# Define currency rates before transformation
+rates = {
+    'USD': 100,  # Example rates, replace with actual rates
+    'EUR': 120,
+    'KES': 1
+    # Add other currencies as needed
+}
+
+#---------------------------------------------------------------------------------------------------------------
+
+# Logging function
+def log_progress(message):
+
+    timestamp_format = '%d-%m-%Y %H:%M:%S'
+
+    now = datetime.now()
+
+    timestamp = now.strftime(timestamp_format)
+
+    with open("etl002_log.txt", "a") as log_file:
+
+        log_file.write(f"{timestamp} - {message}\n")
+
+try:
+    log_progress("ETL Job Started")
+    
+    # Extraction
+    try:
+
+        bank_txn = pd.read_csv(r"C:\Users\Vic\Documents\bank_teller_transactions.csv")
+
+        print('Data successfully extracted')
+
+        log_progress("Extraction completed successfully.")
+
+    except FileNotFoundError as e:
+
+        print('Error encountered during extraction, try again!')
+
+        print('Details:', e)
+
+        log_progress("Extraction failed.")
+
+        sys.exit(1)
+
+    # Transformation
+    start_transform_time = datetime.now()
+
+    try:
+        # Filter successful transactions
+
+        successful_txns = bank_txn[bank_txn["status"] == "Completed"]
+        
+        # Convert amount to KES
+        bank_txn["amount_kes"] = bank_txn["amount"] * bank_txn["currency"].map(rates)
+        
+        # Ensure the transaction_date is datetime
+
+        bank_txn["transaction_date"] = pd.to_datetime(bank_txn["transaction_date"])
+
+        # Format date to DD-MON-YY uppercase
+        bank_txn["transaction_date"] = bank_txn["transaction_date"].dt.strftime("%d-%b-%y").str.upper()
+        
+        # Total transaction amount per customer
+        total_per_customer = bank_txn.groupby('customer_id')['amount'].sum().reset_index()
+
+        # Total amount per branch and currency
+        branch_currency = bank_txn.groupby(['branch', 'currency'])['amount'].sum().reset_index()
+
+        print('Data transformation is successful')
+
+        log_progress("Transformation completed successfully.")
+
+    except Exception as e:
+
+        print('Data transformation has failed')
+
+        print('Details:', e)
+
+        log_progress("Transformation failed.")
+
+        sys.exit(1)
+
+    end_transform_time = datetime.now()
+
+    # Load
+    try:
+        # Save transformed data to CSV
+
+        bank_txn.to_csv('bank_txn.csv', index=False)
+
+        print('Data loaded successfully')
+
+        log_progress("Loading completed successfully.")
+
+    except Exception as e:
+
+        print('Error during loading:', e)
+
+        log_progress("Loading failed.")
+
+        sys.exit(1)
+
+
+    #---------------------------------------------------------------------------------------------------
+
+    # Database connection for logging ETL process
+    dsn = oracledb.makedsn(host='localhost', port=1521, service_name='XEPDB1')
+    connection = oracledb.connect(user='system', password='Mbita.2018', dsn=dsn)
+    cursor = connection.cursor()
+
+    # Insert ETL log into database
+    try:
+        start_time = start_transform_time
+
+        end_time = datetime.now()
+
+        insert_query = """
+            INSERT INTO etl_log (
+                job_name, start_time, end_time, status, rows_processed)
+            VALUES (:job_name, :start_time, :end_time, :status, :rows_processed)
+        """
+        data = {
+            "job_name": "ETL002 Job",
+            "start_time": start_time,
+            "end_time": end_time,
+            "status": "Completed",
+            "rows_processed": len(bank_txn)
+        }
+        cursor.execute(insert_query, data)
+
+        connection.commit()
+
+        print("Log inserted successfully")
+
+        log_progress("ETL process logged successfully.")
+
+    except Exception as e:
+
+        print('Error encountered during insertion:', e)
+
+        log_progress("Failed to log ETL process.")
+
+    finally:
+
+        cursor.close()
+
+        connection.close()
+
+    log_progress("ETL Job Ended")
+    
+except Exception as e:
+
+    print('An unexpected error occurred:', e)
+    
+    log_progress("ETL job encountered an unexpected error.")
