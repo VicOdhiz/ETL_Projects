@@ -116,7 +116,7 @@ connection = oracledb.connect(
 
     user='system',
 
-    password='Mbita.2018',
+    password='xxxxxxxx',
 
     dsn=dsn
 )
