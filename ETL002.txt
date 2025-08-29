@@ -116,7 +116,7 @@ try:
 
     # Database connection for logging ETL process
     dsn = oracledb.makedsn(host='localhost', port=1521, service_name='XEPDB1')
-    connection = oracledb.connect(user='system', password='Mbita.2018', dsn=dsn)
+    connection = oracledb.connect(user='system', password='xxxxxxx', dsn=dsn)
     cursor = connection.cursor()
 
     # Insert ETL log into database
